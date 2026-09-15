@@ -29,11 +29,15 @@ npm run lint     # 代码检查
 
 ## 在线地址
 
-推送到 `main` 分支后，GitHub Actions 会自动构建并部署到 GitHub Pages：
-
 **https://ivyz0836-cloud.github.io/ivy-dashboard/**
 
-首次使用需在仓库 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**。
+网站由 GitHub Pages 托管，读取 `gh-pages` 分支（该分支只放构建产物）。更新线上的流程：
+
+```bash
+npm run build                       # 生成 dist/
+npx vite build --base=/ivy-dashboard/
+# 把 dist/ 内容推送到 gh-pages 分支即可，Pages 会自动重新发布
+```
 
 ## iOS 小组件
 
