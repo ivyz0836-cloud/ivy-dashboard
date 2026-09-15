@@ -1,0 +1,34 @@
+# Ivy 成长工作台 —— iOS 依赖
+#
+# 说明：Capacitor 官方使用 CocoaPods 管理 iOS 依赖。
+# 首次运行前需要在 ios/ 目录下执行：
+#
+#     pod install
+#
+# 之后请始终打开 App.xcworkspace（不是 .xcodeproj）。
+# 如果没有安装 CocoaPods：sudo gem install cocoapods
+
+require_relative '../../node_modules/@capacitor/ios/scripts/pods_helpers'
+
+platform :ios, '13.0'
+use_frameworks!
+
+# workaround to avoid Xcode caching of Pods that requires
+# Product -> Clean Build Folder after new Cordova plugins installed
+# Requires CocoaPods 1.6 or newer
+install! 'cocoapods', :disable_input_output_paths => true
+
+def capacitor_pods
+  pod 'Capacitor', :path => '../../node_modules/@capacitor/ios'
+  pod 'CapacitorCordova', :path => '../../node_modules/@capacitor/ios'
+end
+
+target 'App' do
+  capacitor_pods
+  # 只给 App target 安装依赖；
+  # WidgetExtension 只依赖系统框架（SwiftUI / WidgetKit），不需要 Pod。
+end
+
+post_install do |installer|
+  assertDeploymentTarget(installer)
+end

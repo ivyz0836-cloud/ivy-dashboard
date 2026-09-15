@@ -1,0 +1,27 @@
+# Xcode / CocoaPods 生成物
+build/
+DerivedData/
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xcuserstate
+xcuserdata/
+
+# CocoaPods
+Pods/
+!Podfile
+*.xcworkspace/xcshareddata/
+*.xcscmblueprint
+
+# Capacitor 从 dist 同步进来的 Web 产物（由 cap sync 生成）
+App/public/
+App/capacitor.config.json
+App/App/public/
+App/App/capacitor.config.json
+
+# 其他
+.DS_Store
+*.moved-aside
+*.ipa
+*.dSYM.zip

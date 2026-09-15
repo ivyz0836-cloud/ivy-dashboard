@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+		App Group：让 App 和小组件共享同一个容器目录。
+		这里的 group.com.ivy.workbench 是「文档占位值」，
+		真机/正式使用时请改成你自己团队名下的 group，
+		并且 App 与 Widget 两个 target 必须填同一个值。
+	-->
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.com.ivy.workbench</string>
+	</array>
+</dict>
+</plist>
